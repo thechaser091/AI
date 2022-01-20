@@ -135,9 +135,15 @@ def ai_loop():
             ai_loop();
 
                 
-       
-    file = open("ai_speech/" + a + ".txt", 'r')        
-    engine.say(file.read())
+    try:
+    	file = open("ai_speech/" + a + ".txt", 'r')        
+    	engine.say(file.read())
+    except:
+	engine.say("um what does that mean? type in what it means.")
+        engine.runAndWait()
+	file = open("ai_speech/" + a ".txt", 'w');
+	a = input("?");
+	file.write(a)
     # play the speechxss
     engine.runAndWait()
     if(file.read() == "restart"):
